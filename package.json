@@ -21,7 +21,7 @@
     "@angular/http": "^4.4.6",
     "@angular/platform-browser": "^4.4.6",
     "@angular/platform-browser-dynamic": "^4.4.6",
-    "@angular/router": "^4.4.6",
+    "@angular/router": "^5.2.0",
     "core-js": "^2.5.3",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
