@@ -52,9 +52,9 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "node-sass": "^4.7.2",
     "protractor": "~5.1.2",
-    "ts-node": "~5.0.0",
-    "tslint": "~5.7.0",
-    "typescript": "^2.3.4"
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3"
+    "ts-node": "~5.0.0"
   },
   "napa": {
     "weather-icons": "patharanordev/weather-icon-animated"
