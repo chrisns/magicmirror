@@ -105,7 +105,7 @@ describe('AlarmComponent', () => {
 
     describe('ready to arm', () => {
       it('should show alarm is ready to arm', () => {
-        component.alarm = {status: true};
+        component.alarm = {ready_status: true};
         fixture.detectChanges();
         expect(compiled.querySelector('p').textContent).not.toContain('not ready to arm');
       });
@@ -113,7 +113,7 @@ describe('AlarmComponent', () => {
 
     describe('ready to arm', () => {
       it('should show alarm is ready to arm', () => {
-        component.alarm = {status: false};
+        component.alarm = {ready_status: false};
         fixture.detectChanges();
         expect(compiled.querySelector('p').textContent).toContain('not ready to arm');
       });

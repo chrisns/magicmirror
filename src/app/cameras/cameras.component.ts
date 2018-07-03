@@ -13,8 +13,6 @@ export class CamerasComponent implements OnInit {
 
   @Input()
   set cameras(cameras: Array<object>) {
-    if (cameras.length > 1)
-      cameras = cameras.filter(cam => cam['name'].startsWith('external'));
     this._cameras = cameras;
   }
 

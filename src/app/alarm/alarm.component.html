@@ -1,5 +1,5 @@
 <p class="alarm-status" [ngClass]="alarm.state | lowercase">
-  {{alarm.state | alarmStateToString }}{{alarm.status ? '' : ', not ready to arm'}}
+  {{alarm.state | alarmStateToString }}{{alarm.ready_status ? '' : ', not ready to arm'}}
 </p>
 <section class="openZones" *ngIf="troubledZones.length > 0">
   <ul>

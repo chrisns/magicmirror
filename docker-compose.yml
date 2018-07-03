@@ -17,6 +17,8 @@ services:
         - com.df.httpsOnly=true
         - com.df.servicePath=/
         - com.df.xForwardedProto=true
+        - com.df.usersPassEncrypted=true
+        - com.df.users=magicmirror:$$6$$3CaAozKwM2$$MnhzCQw6PZzto0k8.EOm6kpmr7TU245vflQDbOw.sIHy.mhhcWUKpOy3KSdmE5SIw3HmWRMsnjhIQXlBAVHol.
       restart_policy:
         condition: any
         delay: 5s
@@ -31,6 +33,7 @@ services:
       - MQTT_HOST=${MQTT_HOST}
       - MQTT_USER=${MQTT_USER}
       - MQTT_PASS=${MQTT_PASS}
+      - REGION=${REGION}
 
 networks:
   proxy:

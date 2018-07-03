@@ -1,1 +1,1 @@
-<p [ngClass]="status.nvalue === 1 ? 'on' : 'off'">Audible doorbell is {{status.nvalue === 1 ? 'en' : 'dis'}}abled</p>
+<p *ngIf="status" [ngClass]="status.nvalue === 1 ? 'on' : 'off'">Audible doorbell is {{status.nvalue === 1 ? 'en' : 'dis'}}abled</p>

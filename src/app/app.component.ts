@@ -1,6 +1,8 @@
 import {Component, ChangeDetectorRef} from '@angular/core';
-import {MqttService, MqttConnectionState} from 'ngx-mqtt';
+import {MqttService, MqttConnectionState, MqttMessage} from 'ngx-mqtt';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {Observable} from 'rxjs/Observable';
+
 import {set, get} from 'lodash';
 
 export type QoS = 0 | 1 | 2;
@@ -32,33 +34,37 @@ export class AppComponent {
   }
 
 
-  public get doorbell(): object {
-    return get(this.messages, 'zwave.switch[195]', {});
-  }
-
   constructor(private mqtt: MqttService, private cdRef: ChangeDetectorRef) {
-    mqtt.onMessage.subscribe(m => {
-      let topic = m.topic.replace('/', '.');
-      topic = topic.replace(/[\.|\/]?([\d]+)/g, '[$1]');
-      this.messages = this.messages || new Object;
-      try {
-        set(this.messages, topic, JSON.parse(m.payload.toString()));
-      }
-      catch (e) {
-        set(this.messages, topic, m.payload.toString());
-      }
-    });
-    this.subscribe('alarm/#');
-    this.subscribe('cameras/#');
-    this.subscribe('weather/currently');
-    this.subscribe('weather/minutely');
-    this.subscribe('weather/hourly/data');
-    this.subscribe('weather/daily/data');
-    this.subscribe('zwave/switch/195');
+
+    this.thingSubscribe('alarm_status', 'alarm');
+    this.thingSubscribe('camera_external_driveway', 'cameras[0]');
+    this.thingSubscribe('camera_external_garden', 'cameras[1]');
+    this.thingSubscribe('camera_external_porch', 'cameras[2]');
+    this.thingSubscribe('weather_currently', 'weather.currently');
+    this.thingSubscribe('weather_minutely', 'weather.minutely');
+    this.thingSubscribe('weather_hourly', 'weather.hourly');
+    this.thingSubscribe('weather_daily', 'weather.daily');
+    // this.subscribe('zwave/switch/195');
+
   }
 
-  public subscribe(filter: string): void {
-    this.mqtt.observe(filter);
+  public thingSubscribe(thing: string, set_to: string): Observable<MqttMessage> {
+    const initial_get = this.mqtt.observe(`$aws/things/${thing}/shadow/get/accepted`);
+    const updates = this.mqtt.observe(`$aws/things/${thing}/shadow/update/accepted`);
+
+    const setit = (message: { payload: object }): void =>
+      set(this.messages, set_to, JSON.parse(message.payload.toString()).state.reported);
+
+    initial_get.subscribe(() => this.mqtt.observables[`$aws/things/${thing}/shadow/get/accepted`] = null);
+    initial_get.subscribe(setit);
+    this.mqtt.publish(`$aws/things/${thing}/shadow/get`, '{}').toPromise();
+    updates.subscribe(setit);
+
+    return updates;
+  }
+
+  public publish(topic: string): void {
+    this.mqtt.publish(topic, '{}');
   }
 
 }

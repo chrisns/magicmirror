@@ -1,13 +1,5 @@
 pipeline:
 
-  build:
-    image: node
-    commands:
-      - npm --silent install
-      - node_modules/.bin/napa
-      - node_modules/.bin/ng test --single-run --browsers PhantomJS
-      - node_modules/.bin/ng build
-
   docker:
     image: plugins/docker
     repo: pinked/magicmirror
@@ -22,7 +14,7 @@ pipeline:
     image: docker
     commands:
       - docker deploy --compose-file docker-compose.yml magicmirror
-    secrets: [ MQTT_HOST, MQTT_USER, MQTT_PASS ]
+    secrets: [ MQTT_HOST, MQTT_USER, MQTT_PASS, REGION ]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     when:

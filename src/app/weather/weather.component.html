@@ -1,28 +1,28 @@
 <div class="current">
   <p class="summary">{{weather.minutely.summary}}</p>
   <weather-icon [ic]="weather.currently.icon"></weather-icon>
-  <div class="temp">{{weather.currently.apparentTemperature | number:'1.0-1'}}°C</div>
+  <div class="temp">{{weather.currently.apparentTemp | number:'1.0-1'}}°C</div>
   <div class="details">
-    <span class="temp-high">{{weather['daily/data'][0].apparentTemperatureHigh | number:'1.0-0'}}°C</span>
-    <span class="temp-low">{{weather['daily/data'][0].apparentTemperatureLow | number:'1.0-0'}}°C</span>
+    <span class="temp-high">{{weather.daily.data[0].apparentTempHigh | number:'1.0-0'}}°C</span>
+    <span class="temp-low">{{weather.daily.data[0].apparentTempLow | number:'1.0-0'}}°C</span>
     <span class="rain">{{weather.currently.precipProbability * 100 | number:'1.0-0'}}%</span>
   </div>
 </div>
 <table class="hourly">
-  <tr *ngFor="let hour of weather['hourly/data'] | slice:0:12">
+  <tr *ngFor="let hour of weather.hourly.data | slice:0:12">
     <td>{{hours(hour.time)}}</td>
     <td>
       <weather-icon [ic]="hour.icon"></weather-icon>
     </td>
-    <td> {{hour.apparentTemperature| number:'1.0-0'}}°C</td>
+    <td> {{hour.apparentTemp| number:'1.0-0'}}°C</td>
     <td class="rain">{{hour.precipProbability * 100 | number: '1.0-0'}}%</td>
   </tr>
 </table>
 <div class="forecast">
-  <div *ngFor="let day of weather['daily/data'] |slice:1:-1" class="future day">
+  <div *ngFor="let day of weather.daily.data |slice:1:-1" class="future day">
     <h3>{{date(day.time) | date:'EEEE'}}</h3>
-    <span class="temp-high">{{day.apparentTemperatureHigh | number:'1.0-0'}}°C</span>
-    <span class="temp-low">{{day.apparentTemperatureLow | number:'1.0-0'}}°C</span>
+    <span class="temp-high">{{day.apparentTempHigh | number:'1.0-0'}}°C</span>
+    <span class="temp-low">{{day.apparentTempLow | number:'1.0-0'}}°C</span>
     <span class="rain">{{day.precipProbability * 100 | number: '1.0-0'}}%</span>
     <p class="summary">{{day.summary}}</p>
   </div>

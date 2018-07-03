@@ -18,7 +18,7 @@ describe('CamerasComponent', () => {
     fixture = TestBed.createComponent(CamerasComponent);
     component = fixture.componentInstance;
     compiled = fixture.debugElement.nativeElement;
-    component.cameras = [{name: 'external-one', url: 'one'}, {name: 'external-two', url: 'two'}, {name: 'internal-three', url: 'three'}];
+    component.cameras = [{name: 'external-one', mjpeg: 'one'}, {name: 'external-two', mjpeg: 'two'}, {name: 'internal-three', mjpeg: 'three'}];
     fixture.detectChanges();
   });
 
@@ -27,7 +27,7 @@ describe('CamerasComponent', () => {
   });
 
   it('should show a feed for each camera', () => {
-    expect(compiled.querySelectorAll('img').length).toBe(2);
+    expect(compiled.querySelectorAll('img').length).toBe(3);
   });
 
   it('should inject the camera url into the img src', () => {
