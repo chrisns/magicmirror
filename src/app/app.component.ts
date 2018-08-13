@@ -46,7 +46,6 @@ export class AppComponent {
     this.thingSubscribe('weather_minutely', 'weather.minutely');
     this.thingSubscribe('weather_hourly', 'weather.hourly');
     this.thingSubscribe('weather_daily', 'weather.daily');
-    // this.subscribe('zwave/switch/195');
 
   }
 
