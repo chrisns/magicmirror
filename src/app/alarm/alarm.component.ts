@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {filter, get} from 'lodash';
 
 @Component({
@@ -6,7 +6,7 @@ import {filter, get} from 'lodash';
   templateUrl: './alarm.component.html',
   styleUrls: ['./alarm.component.sass']
 })
-export class AlarmComponent implements OnInit {
+export class AlarmComponent {
   @Input() alarm: object = {};
 
   constructor() {
@@ -22,9 +22,6 @@ export class AlarmComponent implements OnInit {
 
   public get troubledZones(): Array<object> {
     return filter(this.zones, zone => zone.troubles && zone.troubles !== null);
-  }
-
-  ngOnInit() {
   }
 
 }
