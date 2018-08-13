@@ -16,8 +16,8 @@ import {
 
 import {WeatherComponent} from './weather/weather.component';
 import {WeatherIconComponent} from './weather-icon/weather-icon.component';
-import {CamerasComponent} from './cameras/cameras.component';
 import {MjpegStreamComponent} from './mjpegstream/mjpegstream.component';
+import {CamerasComponent} from './cameras/cameras.component';
 import {AlarmComponent} from './alarm/alarm.component';
 import {AlarmStateToStringPipe} from './alarm/alarm.pipes';
 import {DoorbellComponent} from './doorbell/doorbell.component';
