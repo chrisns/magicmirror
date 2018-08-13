@@ -1,11 +1,11 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnChanges, SimpleChanges, Input} from '@angular/core';
 
 @Component({
   selector: 'cameras',
   templateUrl: './cameras.component.html',
   styleUrls: ['./cameras.component.sass']
 })
-export class CamerasComponent implements OnInit {
+export class CamerasComponent implements OnChanges {
   private _cameras = [];
 
   constructor() {
@@ -22,6 +22,15 @@ export class CamerasComponent implements OnInit {
 
 
   ngOnInit() {
+    // console.log($("cameras img").naturalHeight, "foooo")
+    // debugger;
+    // console.log("foo")
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    // debugger;
+
+    console.log(changes, this)
+    // changes.prop contains the old and the new value...
+  }
 }
