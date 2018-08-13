@@ -37,9 +37,11 @@ export class AppComponent {
   constructor(private mqtt: MqttService, private cdRef: ChangeDetectorRef) {
 
     this.thingSubscribe('alarm_status', 'alarm');
-    this.thingSubscribe('camera_external_driveway', 'cameras[0]');
+    this.thingSubscribe('camera_external_back', 'cameras[0]');
     this.thingSubscribe('camera_external_garden', 'cameras[1]');
-    this.thingSubscribe('camera_external_porch', 'cameras[2]');
+    this.thingSubscribe('camera_external_driveway', 'cameras[2]');
+    this.thingSubscribe('camera_external_porch', 'cameras[3]');
+    this.thingSubscribe('camera_external_front', 'cameras[4]');
     this.thingSubscribe('weather_currently', 'weather.currently');
     this.thingSubscribe('weather_minutely', 'weather.minutely');
     this.thingSubscribe('weather_hourly', 'weather.hourly');

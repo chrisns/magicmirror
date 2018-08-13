@@ -1,1 +1,1 @@
-<img *ngFor="let camera of cameras" src="{{camera.mjpeg}}">
+<img *ngFor="let camera of cameras" src="{{camera.mjpeg}}" id="{{camera.name.replace(' ', '_')}}">
