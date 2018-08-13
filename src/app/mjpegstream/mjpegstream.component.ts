@@ -74,9 +74,12 @@ var MJPEG = (function (module) {
     var self = this;
     var context = canvas.getContext('2d');
 
-    if (!options) {
+    if (!options)
       options = {};
-    }
+
+    if (!url)
+      return false;
+
     options.url = url;
     options.onFrame = updateFrame;
     options.onStart = function () {
