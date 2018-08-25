@@ -26,7 +26,7 @@ var MJPEG = (function (module) {
     var autoStart = args.autoStart || false;
 
     self.url = args.url;
-    self.refreshRate = args.refreshRate || 100;
+    self.refreshRate = args.refreshRate || 500;
     self.onStart = args.onStart || null;
     self.onFrame = args.onFrame || null;
     self.onStop = args.onStop || null;
