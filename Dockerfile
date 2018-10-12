@@ -5,7 +5,7 @@ COPY package.json .
 RUN npm --silent install
 COPY . .
 RUN node_modules/.bin/napa
-RUN node_modules/.bin/ng test --single-run --browsers PhantomJS
+RUN node_modules/.bin/ng test --single-run --browsers PhantomJS --reporters dots
 RUN node_modules/.bin/ng build
 
 FROM nginx:alpine
