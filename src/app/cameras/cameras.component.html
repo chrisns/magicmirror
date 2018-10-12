@@ -1,3 +1,1 @@
-<mjpegstream *ngFor="let camera of cameras" [src]="camera.mjpeg" [id]="camera.name.replace(' ', '_')">
-  src="{{camera.mjpeg}}
-</mjpegstream>
+<img *ngFor="let camera of cameras" [src]="camera.mjpeg" [id]="camera.name.replace(' ', '_')"/>
