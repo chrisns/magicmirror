@@ -1,6 +1,5 @@
 <div class="current">
   <p class="summary">{{weather.minutely.summary}}</p>
-  <weather-icon [ic]="weather.currently.icon"></weather-icon>
   <div class="temp">{{weather.currently.apparentTemp | number:'1.0-1'}}°C</div>
   <div class="details">
     <span class="temp-high">{{weather.daily.data[0].apparentTempHigh | number:'1.0-0'}}°C</span>
@@ -12,7 +11,6 @@
   <tr *ngFor="let hour of weather.hourly.data | slice:0:12">
     <td>{{hours(hour.time)}}</td>
     <td>
-      <weather-icon [ic]="hour.icon"></weather-icon>
     </td>
     <td> {{hour.apparentTemp| number:'1.0-0'}}°C</td>
     <td class="rain">{{hour.precipProbability * 100 | number: '1.0-0'}}%</td>
