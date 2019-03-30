@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "manifest.json",
-        "config.json"
+        "config.json",
+        "favicon.ico"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -55,7 +56,6 @@
   },
   "defaults": {
     "styleExt": "sass",
-    "component": {
-    }
+    "component": {}
   }
 }
