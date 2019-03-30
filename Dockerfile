@@ -12,21 +12,17 @@ COPY *.json *.js ./
 RUN node_modules/.bin/ng test --single-run --browsers PhantomJS --reporters dots
 RUN node_modules/.bin/ng build
 
+RUN rm /app/dist/*.map
+
 FROM nginx:alpine
 
-RUN apk add --no-cache openssl
+COPY nginx.conf /etc/nginx/nginx.conf
 
-ENV DOCKERIZE_VERSION v0.5.0
-RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-
-RUN rm -r /usr/share/nginx/html/
 COPY --from=builder /app/dist /usr/share/nginx/html
-COPY --from=builder /app/config.json.tpl /usr/share/nginx/html/config.json.tpl
+COPY config.json.tpl /config.json.tpl
 
+CMD envsubst < /config.json.tpl > /var/cache/nginx/config.json && exec nginx -g 'daemon off;'
 
-CMD dockerize -template /usr/share/nginx/html/config.json.tpl:/usr/share/nginx/html/config.json nginx -g "daemon off;"
-
-
-HEALTHCHECK CMD wget -q localhost:80 -O /dev/null || exit 1
+USER nginx
+VOLUME /var/cache/nginx
+HEALTHCHECK CMD wget -q localhost:8080 -O /dev/null || exit 1
