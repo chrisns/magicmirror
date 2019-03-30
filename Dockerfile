@@ -3,8 +3,12 @@ WORKDIR /app
 COPY package-lock.json .
 COPY package.json .
 RUN npm --silent install
-COPY . .
 RUN node_modules/.bin/napa
+
+COPY e2e e2e
+COPY src src
+COPY *.json *.js ./
+
 RUN node_modules/.bin/ng test --single-run --browsers PhantomJS --reporters dots
 RUN node_modules/.bin/ng build
 
