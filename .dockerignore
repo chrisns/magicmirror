@@ -2,3 +2,6 @@ Dockerfile
 LICENSE
 README.md
 node_modules
+.git
+hooks
+src/app/config.json
