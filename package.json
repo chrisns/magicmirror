@@ -54,7 +54,7 @@
     "protractor": "~5.4.2",
     "ts-node": "~5.0.0",
     "tslint": "~5.20.0",
-    "typescript": "^2.3.4"
+    "typescript": "^2.9.2"
   },
   "napa": {
     "weather-icons": "patharanordev/weather-icon-animated"
