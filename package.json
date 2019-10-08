@@ -31,7 +31,7 @@
     "napa": "^3.0.0",
     "ngx-mqtt": "1.16.0",
     "rxjs": "^5.5.12",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.29"
   },
   "devDependencies": {
     "@angular/cli": "^1.6.3",
