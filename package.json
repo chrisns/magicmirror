@@ -23,7 +23,7 @@
     "@angular/platform-browser-dynamic": "^4.4.6",
     "@angular/router": "^4.4.6",
     "aws-iot-device-sdk": "^2.2.0",
-    "aws-sdk": "^2.571.0",
+    "aws-sdk": "^2.572.0",
     "aws-signature-v4": "^1.4.0",
     "core-js": "^2.6.10",
     "font-awesome": "^4.7.0",
