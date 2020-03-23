@@ -1,9 +1,23 @@
 @import '../../font-awesome.sass'
 
 \:host
+  font-size: 0.75em
   display: block
   float: left
   width: 40vw
+
+.h_iframe
+  position: relative
+  .ratio 
+    display: block
+    width: 100%
+    height: auto
+  iframe 
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
 
 .hourly
   clear: both
@@ -12,7 +26,7 @@
   position: relative
   width: 18vw
   td
-    line-height: 3em
+    line-height: 1.4em
     white-space: nowrap
   weather-icon
     font-size: 0.1em
@@ -46,7 +60,7 @@
     font-size: 1.2em
   .summary
     font-size: 3vw
-    margin: 0 0 0.3em 0
+    margin: 0 0 -0.3em 0
     text-align: justify
     text-justify: inter-word
     text-align-last: justify
@@ -68,4 +82,9 @@
   h3
     display: block
     margin-bottom: 0.2em
+    margin-block-start: 0
+  p
+    margin-block-start: 0
+    margin-block-end: 0
+
 //display: inline
