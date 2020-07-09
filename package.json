@@ -27,7 +27,7 @@
     "aws-signature-v4": "^1.4.0",
     "core-js": "^2.6.11",
     "font-awesome": "^4.7.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "napa": "^3.0.0",
     "ngx-mqtt": "1.16.0",
     "rxjs": "^5.5.12",
