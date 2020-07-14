@@ -1,20 +1,22 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: "@angular/cli"
-    versions:
-    - "> 1.7.4"
-  - dependency-name: core-js
-    versions:
-    - ">= 3.a, < 4"
-- package-ecosystem: docker
-  directory: "/"
-  schedule:
-    interval: daily
-  labels:
-    - "automerge"
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: "@angular/cli"
+        versions:
+        - "> 1.7.4"
+      - dependency-name: core-js
+        versions:
+        - ">= 3.a, < 4"
+    labels:
+      - "automerge"
+  - package-ecosystem: docker
+    directory: "/"
+    schedule:
+      interval: daily
+    labels:
+      - "automerge"
