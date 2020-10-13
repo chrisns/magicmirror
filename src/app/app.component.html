@@ -3,5 +3,5 @@
   <weather [weather]="weather" *ngIf="messages && messages.weather"></weather>
   <alarm [alarm]="messages.alarm" *ngIf="messages && messages.alarm && messages.alarm.is_connected"></alarm>
   <doorbell [status]="doorbell" *ngIf="doorbell"></doorbell>
-  <cameras [cameras]="cameras"></cameras>
+  <cameras [cameras]="cameras" [ngClass]="ev"></cameras>
 </main>

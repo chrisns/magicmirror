@@ -18,6 +18,7 @@ export class AppComponent {
   public qos: QoS = 0;
   public filter: string;
   public message: string;
+  public ev: string;
 
   public messages: object = {};
 
@@ -47,6 +48,10 @@ export class AppComponent {
     this.thingSubscribe('weather_hourly', 'weather.hourly');
     this.thingSubscribe('weather_daily', 'weather.daily');
 
+    this.mqtt.observe('magicmirror/event').subscribe((message: { payload: object }): void => {
+      this.ev = message.payload.toString()
+      setTimeout(() => {this.ev = ""}, 30000)
+    })
   }
 
   public thingSubscribe(thing: string, set_to: string): Observable<MqttMessage> {
