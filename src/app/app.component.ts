@@ -19,6 +19,7 @@ export class AppComponent {
   public filter: string;
   public message: string;
   public ev: string;
+  private ev_reset: object
 
   public messages: object = {};
 
@@ -49,8 +50,10 @@ export class AppComponent {
     this.thingSubscribe('weather_daily', 'weather.daily');
 
     this.mqtt.observe('magicmirror/event').subscribe((message: { payload: object }): void => {
-      this.ev = message.payload.toString()
-      setTimeout(() => {this.ev = ""}, 30000)
+      this.ev = `event-${message.payload.toString()}`
+      if (this.ev_reset) 
+        clearTimeout(Number(this.ev_reset))
+      this.ev_reset = setTimeout(() => {this.ev = ""}, 30000)
     })
   }
 
