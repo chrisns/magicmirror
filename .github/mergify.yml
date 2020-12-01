@@ -1,8 +1,8 @@
 pull_request_rules:
-  - name: automatic merge when GitHub branch protection passes on master
+  - name: automatic merge dependabot
     conditions:
       - base=master
-      - author~=^dependabot(|-preview)\[bot\]$
+      - author=dependabot[bot]
     actions:
       merge:
         method: rebase
@@ -10,24 +10,39 @@ pull_request_rules:
 
   - name: approve dependabot
     conditions:
-      - author~=^dependabot(|-preview)\[bot\]$
+      - author=dependabot[bot]
     actions:
       review:
         message: auto approve dependabot
 
-  - name: assign failing dependabot to author
+  - name: automatic merge repomanager
     conditions:
-      - author~=^dependabot(|-preview)\[bot\]$
+      - base=master
+      - author=the-repository-manager[bot]
+    actions:
+      merge:
+        method: rebase
+        rebase_fallback: squash
+
+  - name: approve repomanager
+    conditions:
+      - author=the-repository-manager[bot]
+    actions:
+      review:
+        message: auto approve repomanager
+
+  - name: assign failing to owner
+    conditions:
       - check-failure=build
     actions:
       assign:
         users:
           - chrisns
 
-  - name: assign failing dependabot to author
+  - name: assign non dependabot to owner
     conditions:
-      - author~=^dependabot(|-preview)\[bot\]$
-      - check-failure=build
+      - author!=dependabot[bot]
+      - author!=the-repository-manager[bot]
     actions:
       assign:
         users:
