@@ -2,14 +2,14 @@ pull_request_rules:
   - name: automatic merge when GitHub branch protection passes on master
     conditions:
       - base=master
-      - author=dependabot
+      - author~=^dependabot(|-preview)\[bot\]$
     actions:
       merge:
-        method: merge
+        method: rebase
 
   - name: approve dependabot
     conditions:
-      - author=dependabot
+      - author~=^dependabot(|-preview)\[bot\]$
     actions:
       review:
         message: auto approve dependabot
