@@ -6,6 +6,7 @@ pull_request_rules:
     actions:
       merge:
         method: rebase
+        rebase_fallback: squash
 
   - name: approve dependabot
     conditions:
@@ -13,3 +14,21 @@ pull_request_rules:
     actions:
       review:
         message: auto approve dependabot
+
+  - name: assign failing dependabot to author
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - check-failure=build
+    actions:
+      assign:
+        users:
+          - chrisns
+
+  - name: assign failing dependabot to author
+    conditions:
+      - author~=^dependabot(|-preview)\[bot\]$
+      - check-failure=build
+    actions:
+      assign:
+        users:
+          - chrisns
