@@ -16,6 +16,8 @@ RUN rm /app/dist/*.map
 
 FROM nginx:alpine
 
+LABEL org.opencontainers.image.source https://github.com/chrisns/magicmirror
+
 COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=builder /app/dist /usr/share/nginx/html
