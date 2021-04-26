@@ -1,8 +1,8 @@
-FROM node:15 as builder
+FROM node:14.15.5 as builder
 WORKDIR /app
 COPY package-lock.json .
 COPY package.json .
-RUN npm --silent install
+RUN npm install
 RUN node_modules/.bin/napa
 
 COPY e2e e2e
