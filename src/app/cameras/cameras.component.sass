@@ -5,14 +5,41 @@
   bottom: 0
   position: absolute
 
-.camera
-  display: block
-  max-width: 100%
+// .camera
+//   display: block
+//   max-width: 100%
 
-.camera#external_back,
-.camera#external_garden
-  display: inline-block
-  max-width: 50%
+// .camera#external_back,
+// .camera#external_garden
+//   display: inline-block
+//   max-width: 49%
+
+// html,body      
+//   height: 100%
+// .wrapper         
+//   width: 100%
+//   height: 100%
+//   margin: 0 auto
+//   background: #CCC
+div        
+  position: relative
+  img
+    display: block
+    width: 100%
+    height: auto
+  iframe
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+  &#external_back,
+  &#external_garden,
+    width: 49%
+    display: inline-block
+  // &#external_garden
+  //   left: 50%
+
 
 \:host.event-doorbell
   left: 0

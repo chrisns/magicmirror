@@ -1,1 +1,23 @@
-<img *ngFor="let camera of cameras" [src]="camera.mjpeg" [id]="camera.name.replace(' ', '_')" class="camera"/>
+<div id="external_back">
+  <img src="http://placehold.it/16x9"/>
+  <iframe src="https://cams-back.p.cns.me/player.html?autoplay=1&mute=1" scrolling="no" frameborder="0"></iframe>
+</div>
+<div id="external_garden">
+  <img src="http://placehold.it/16x9"/>
+  <iframe src="https://cams-garden.p.cns.me/player.html?autoplay=1&mute=1" scrolling="no" frameborder="0"></iframe>
+</div>
+<div id="external_driveway">
+  <img src="http://placehold.it/16x9"/>
+  <iframe src="https://cams-driveway.p.cns.me/player.html?autoplay=1&mute=1" scrolling="no" frameborder="0"></iframe>
+</div>
+<div id="external_porch">
+  <img src="http://placehold.it/16x9"/>
+  <iframe src="https://cams-porch.p.cns.me/player.html?autoplay=1&mute=1" scrolling="no" frameborder="0"></iframe>
+</div>
+<div id="external_front">
+    <img src="http://placehold.it/16x9"/>
+    <iframe src="https://cams-front.p.cns.me/player.html?autoplay=1&mute=1" scrolling="no" frameborder="0"></iframe>
+</div>
+
+<!-- {{cameras | json}} -->
+<!-- <img *ngFor="let camera of cameras" [src]="camera.mjpeg" [id]="camera.name.replace(' ', '_')" class="camera"/> -->

@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core'
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'cameras',
@@ -6,5 +7,5 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./cameras.component.sass']
 })
 export class CamerasComponent {
-  @Input() cameras: Array<object>;
+  @Input() cameras: Array<any>
 }
