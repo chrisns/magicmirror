@@ -25,7 +25,7 @@
     "aws-iot-device-sdk": "2.2.6",
     "aws-sdk": "2.884.0",
     "aws-signature-v4": "1.4.0",
-    "core-js": "3.10.1",
+    "core-js": "2.6.11",
     "font-awesome": "4.7.0",
     "lodash": "4.17.21",
     "napa": "3.0.0",
