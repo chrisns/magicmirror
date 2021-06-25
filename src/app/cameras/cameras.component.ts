@@ -18,7 +18,7 @@ export class CamerasComponent {
             el.src = `${el.getAttribute('osrc')}?${Date.now()}`
           }
         )
-      }, 100)
+      }, 1000)
     }
   }
 }
