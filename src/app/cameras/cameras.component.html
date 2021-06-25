@@ -1,1 +1,5 @@
-<img *ngFor="let camera of cameras" [src]="camera.mjpeg" [id]="camera.name.replace(' ', '_')" class="camera"/>
+<img width="640" height="360" class="camera static_cam" id="external_garden" osrc="https://magicmirror.p.cns.me/cam/garden.jpg"/>
+<img width="640" height="360" class="camera" id="external_back" [src]="cameras[0].mjpeg"/>
+<img width="640" height="360" class="camera static_cam" id="external_driveway" osrc="https://magicmirror.p.cns.me/cam/driveway.jpg"/>
+<img width="640" height="360" class="camera static_cam" id="external_porch" osrc="https://magicmirror.p.cns.me/cam/porch.jpg"/>
+<img width="640" height="360" class="camera static_cam" id="external_front" osrc="https://magicmirror.p.cns.me/cam/front.jpg"/>
