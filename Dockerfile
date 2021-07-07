@@ -14,7 +14,7 @@ RUN node_modules/.bin/ng build
 
 RUN rm /app/dist/*.map
 
-FROM nginx:1.21.0-alpine
+FROM nginx:1.21-alpine
 
 LABEL org.opencontainers.image.source https://github.com/chrisns/magicmirror
 
